@@ -3,7 +3,6 @@ def spel():
     index = 0
     number =1
     totalt_rätt_svar = 0
-    new =0
 
     for key in frågor: 
         print("\n",number,">",key) # will print question from the dictionary
@@ -23,7 +22,7 @@ def spel():
 
     print("\n\nVill du spela igen(ya eller nej):")
     input1 = input("> ")
-    if input1 == "ya":
+    if input1 == "ja":
         spel()
     else:
         print("hej dååååååå")
@@ -35,7 +34,7 @@ def spel():
 
 def kolla_svar(rätt_svar, user_svar):
     
-    if user_svar<3 and user_svar>0:
+    if user_svar <= 3 and user_svar >= 1:
         if rätt_svar == user_svar:  # checking the value from dictionary  with the input value
             print("\n****det är rätt****")
             return 1
@@ -43,7 +42,7 @@ def kolla_svar(rätt_svar, user_svar):
             print("\n***Det är fel svar***")
             return 0
     else:
-        print("FEL Sifra.")
+        print("FEL Siffra.")
         user_svar = int(input("Pröva igen: "))
         return kolla_svar(rätt_svar, user_svar)
     
@@ -56,25 +55,27 @@ def visa_resultat(totalt_rätt_svar):
 
 
 frågor = {'''Vad skriver följande rad kod ut i terminalen?
-    print("Hello world!")''': 1, 
+    print("Hello World!")''': 1, 
     """Vad skriver följande rad kod ut i terminalen?
 print(f"{type(5)} {type(1.52)} {type('hej')} {type(True)}")""":1,
-"""Vilken klass/typ blir följande variabel?
+"""\nVilken klass/typ blir följande variabel?
 variabelnamn = 'text här'""":3,
 """fruits = ["apple", "banana", "cherry"]
-    vilken kommand måste skriva för att tabort "banana" från fruits.""":2,
-    """fruits = ("apple", "banana", "cherry")
-    vilken data type är den?""":3,
-    """i = 0
-    while i < 6:
-    i += 1
-    if i == 3:
-        continue
-    print(i)
-    vad ska printa i terminalen?\n\n""":3}
+vilken kommand måste skriva för att tabort "banana" från fruits.""":2,
+
+"""fruits = ("apple", "banana", "cherry")
+vilken data type är den?""":3,
+
+"""i = 0
+while i < 6:
+i += 1
+if i == 3:
+    continue
+print(i)
+vad ska printa i terminalen?\n\n""":3}
 
 
-svar=[("1. Hello World","2. HELLO WORLD","3. Hello     World"),
+svar=[("1. Hello World!","2. HELLO WORLD","3. Hello     World"),
     ("1. <class 'int'> <class 'float'> <class 'str'> <class 'bool'>", "2. <nåt> <som> <jag> <inte> <vet>", "3. 5,1.42,hej, True"),
     ("1. int", "2. float", "3. ingen av de"),
     ("1. fruits.pop()","2. fruits.remove('banana')","3. fruits.clear()"),
